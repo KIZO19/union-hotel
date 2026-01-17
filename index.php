@@ -153,6 +153,12 @@ case 'liste_agents':
         header('Location: index.php?action=dashboard');
     }
     break;
+    case 'update_profile':
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Logique de mise à jour en DB (UPDATE utilisateurs SET ...)
+        // Puis mettre à jour la $_SESSION['user'] pour refléter les changements
+    }
+    break;
 
     case 'dashboard':
         // 1. On récupère le niveau d'accès (ex: PDG, DG, CLIENT)

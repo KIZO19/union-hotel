@@ -23,7 +23,25 @@
             transition: all 0.3s;
             z-index: 1050;
         }
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100% !important;
+        min-height: auto !important;
+        position: relative;
+    }
+    
+    /* On transforme la sidebar en menu horizontal sur mobile si besoin */
+    .sidebar .nav-item {
+        text-align: center;
+    }
+}
 
+/* Conteneur principal pour éviter que le contenu ne passe sous la sidebar */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    transition: all 0.3s;
+}      
         .content-area { flex-grow: 1; display: flex; flex-direction: column; min-width: 0; transition: all 0.3s; }
 
         /* Top Header */
@@ -128,11 +146,13 @@
 
             <div class="user-identity text-end">
                 <div class="fw-bold text-dark small line-height-1">
-                    <?= $_SESSION['user']['nom'] ?> <span class="d-none d-md-inline"><?= $_SESSION['user']['prenom'] ?></span>
+                    Bienvenue, <?= $_SESSION['user']['nom'] ?> <span class="d-none d-md-inline"><?= $_SESSION['user']['postnom'].$_SESSION['user']['prenom'] ?></span>
+                    <span class="badge bg-light text-dark border p-1" style="font-size: 0.6rem;"><?= $_SESSION['user']['niveau_acces']?></span>
+                     
                 </div>
                 <div class="d-flex align-items-center justify-content-end gap-1">
-                    <span class="text-muted italic d-none d-md-block" style="font-size: 0.7rem;"><?= $_SESSION['user']['niveau_acces'] ?></span>
-                    <span class="badge bg-light text-dark border p-1" style="font-size: 0.6rem;"><?= $_SESSION['user']['departement'] ?? 'Direction' ?></span>
+                   
+            <a href="index.php?action=logout" class="btn btn-outline-danger btn-sm">Déconnexion</a>
                 </div>
             </div>
         </div>

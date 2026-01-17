@@ -5,7 +5,7 @@ $today = date('Y-m-d');
 
 <div class="wrapper d-flex">
     <?php require_once 'app/views/layout/sidebar.php'; ?>
-
+    
     <main class="flex-grow-1 bg-light" style="min-height: 100vh;">
         <div class="p-4">
             <div class="d-flex justify-content-between align-items-center mb-4">
