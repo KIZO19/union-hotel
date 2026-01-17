@@ -1,0 +1,4 @@
+# .gitignore
+app/config/database.php
+.DS_Store
+/vendor
